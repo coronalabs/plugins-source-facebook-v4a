@@ -1,0 +1,90 @@
+--
+-- For more information on build.settings see the Corona SDK Build Guide at:
+-- http://docs.coronalabs.com/guide/distribution/buildSettings/index.html
+--
+
+settings =
+{
+	orientation =
+	{
+		default = "portrait",
+		supported = { "portrait" }
+	},
+	splashScreen = 
+    {
+        enable = false
+    },
+	plugins =
+	{
+		-- This section is only required for builds > 2015.2668
+		["plugin.facebook.v4a"] = { publisherId = "com.coronalabs", },
+	},
+	android =
+	{
+		usesPermissions =
+		{
+			"android.permission.INTERNET",
+		},
+		facebookAppId = "407318409718485", -- replace XXXXXXXXX with your facebook appId
+	},
+	iphone =
+	{
+		xcassets = "Images.xcassets",
+		plist =
+		{
+			-- For iOS 9+ only
+			-- !!!!!
+			CFBundleIdentifier = "Corona_Test_App",
+			NSAppTransportSecurity =
+			{
+				NSExceptionDomains =
+				{
+					["fbcdn.net"] =
+					{
+						NSIncludesSubdomains = true,
+						NSExceptionRequiresForwardSecrecy = false,
+					},
+					["facebook.com"] =
+					{
+						NSIncludesSubdomains = true,
+						NSExceptionRequiresForwardSecrecy = false,
+					},
+					["akamaihd.net"] =
+					{
+						NSIncludesSubdomains = true,
+						NSExceptionRequiresForwardSecrecy = false,
+					},
+				},
+			},
+
+			-- Application query schemes
+			LSApplicationQueriesSchemes =
+			{
+				"fb",
+				"fbapi",
+				"fb-messenger-share-api",
+				"fbauth2",
+				"fbshareextension",
+			},
+			FacebookDisplayName = "Corona Demo App",
+			FacebookAppID = "407318409718485", -- replace XXXXXXXXX with your facebook appId
+			-- Bundle URL types
+			CFBundleURLTypes =
+			{
+				{
+					CFBundleURLSchemes =
+					{
+						"fb407318409718485",--foo", -- replace XXXXXXXXX with your facebook appId
+					}
+				}
+			},
+		}
+	},
+	window =
+	{
+		titleText =
+		{
+			default = "Facebook",
+		},
+	},
+}

@@ -1,0 +1,10 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="plugin.facebook.v4a">
+
+    <application>
+        <activity android:name="plugin.facebook.v4a.FacebookFragmentActivity"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+            android:configChanges="keyboardHidden|screenSize|orientation"/>
+    </application>
+
+</manifest>

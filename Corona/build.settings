@@ -1,90 +1,77 @@
 --
--- For more information on build.settings see the Corona SDK Build Guide at:
--- http://docs.coronalabs.com/guide/distribution/buildSettings/index.html
+-- For more information on build.settings, see the Project Build Settings guide at:
+-- https://docs.coronalabs.com/guide/distribution/buildSettings
 --
+
+-- There are quite a few steps involved in getting an app to work with Facebook; you can start here:
+-- https://docs.coronalabs.com/guide/social/setupFacebook/index.html
+
+-- When you've got your Facebook App ID enter it here:
+local myFacebookAppID = "174574592667103"
 
 settings =
 {
-	orientation =
-	{
+	orientation = {
+		-- Supported values for orientation:
+		-- portrait, portraitUpsideDown, landscapeLeft, landscapeRight
 		default = "portrait",
-		supported = { "portrait" }
+		supported = { "portrait", "portraitUpsideDown" }
 	},
-	splashScreen = 
-    {
-        enable = false
-    },
-	plugins =
-	{
-		-- This section is only required for builds > 2015.2668
-		["plugin.facebook.v4a"] = { publisherId = "com.coronalabs", },
-	},
-	android =
-	{
-		usesPermissions =
-		{
-			"android.permission.INTERNET",
-		},
-		facebookAppId = "407318409718485", -- replace XXXXXXXXX with your facebook appId
-	},
+
 	iphone =
 	{
 		xcassets = "Images.xcassets",
 		plist =
 		{
-			-- For iOS 9+ only
-			-- !!!!!
-			CFBundleIdentifier = "Corona_Test_App",
-			NSAppTransportSecurity =
-			{
-				NSExceptionDomains =
-				{
-					["fbcdn.net"] =
-					{
-						NSIncludesSubdomains = true,
-						NSExceptionRequiresForwardSecrecy = false,
-					},
-					["facebook.com"] =
-					{
-						NSIncludesSubdomains = true,
-						NSExceptionRequiresForwardSecrecy = false,
-					},
-					["akamaihd.net"] =
-					{
-						NSIncludesSubdomains = true,
-						NSExceptionRequiresForwardSecrecy = false,
-					},
-				},
-			},
+			UIApplicationExitsOnSuspend = false,
 
-			-- Application query schemes
-			LSApplicationQueriesSchemes =
-			{
-				"fb",
-				"fbapi",
-				"fb-messenger-share-api",
-				"fbauth2",
-				"fbshareextension",
-			},
-			FacebookDisplayName = "Corona Demo App",
-			FacebookAppID = "407318409718485", -- replace XXXXXXXXX with your facebook appId
-			-- Bundle URL types
 			CFBundleURLTypes =
 			{
 				{
 					CFBundleURLSchemes =
 					{
-						"fb407318409718485",--foo", -- replace XXXXXXXXX with your facebook appId
+						"fb" .. myFacebookAppID,
 					}
 				}
 			},
-		}
+			FacebookAppID = myFacebookAppID,
+
+			UILaunchStoryboardName = "LaunchScreen",
+			ITSAppUsesNonExemptEncryption = false, -- This sample doesn't use custom encryption
+			LSApplicationQueriesSchemes =
+			{
+				"fb",  -- Needed for the facebook-v4.isFacebookAppEnabled() API
+				"fbapi",
+				"fbauth2",
+				"fb-messenger-api",
+				"fbshareextension",
+			},
+		},
 	},
+
+	android =
+	{
+		facebookAppId = myFacebookAppID,
+
+        usesPermissions = {
+            "android.permission.INTERNET",
+        },
+
+	},	
+
 	window =
 	{
 		titleText =
 		{
 			default = "Facebook",
 		},
+	},
+
+	plugins =
+	{
+        ["plugin.facebook.v4a"] =
+        {
+            publisherId = "com.coronalabs",
+        },
 	},
 }

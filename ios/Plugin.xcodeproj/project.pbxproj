@@ -36,7 +36,6 @@
 		1C32EB00203B211100E81325 /* CoronaFacebookDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoronaFacebookDelegate.h; path = Plugin/CoronaFacebookDelegate.h; sourceTree = "<group>"; };
 		1C32EB07203B21D200E81325 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = EmbeddedFrameworks/FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		1C32EB08203B21D200E81325 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = EmbeddedFrameworks/FBSDKLoginKit.framework; sourceTree = "<group>"; };
-		1C32EB09203B21D200E81325 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = EmbeddedFrameworks/Bolts.framework; sourceTree = "<group>"; };
 		1C32EB0A203B21D200E81325 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = EmbeddedFrameworks/FBSDKShareKit.framework; sourceTree = "<group>"; };
 		1C32EB1E203B222E00E81325 /* FacebookLibrary.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FacebookLibrary.cpp; sourceTree = "<group>"; };
 		1C32EB1F203B222E00E81325 /* FacebookLibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacebookLibrary.h; sourceTree = "<group>"; };
@@ -68,7 +67,6 @@
 			isa = PBXGroup;
 			children = (
 				F56B87882370AEF40091376E /* Accounts.framework */,
-				1C32EB09203B21D200E81325 /* Bolts.framework */,
 				1C32EB07203B21D200E81325 /* FBSDKCoreKit.framework */,
 				1C32EB08203B21D200E81325 /* FBSDKLoginKit.framework */,
 				1C32EB0A203B21D200E81325 /* FBSDKShareKit.framework */,

@@ -889,11 +889,6 @@ class FacebookController {
                         sCallbackManager,
                         shareCallback);
 
-                sRequestDialog = new GameRequestDialog(activity);
-                sRequestDialog.registerCallback(
-                        sCallbackManager,
-                        requestCallback);
-
 				// Set up access token tracker to handle login events
 				sAccessTokenTracker = new AccessTokenTracker() {
 
@@ -1561,6 +1556,10 @@ class FacebookController {
                                                    .setSuggestions(suggestions)
                                                    .build();
 
+                                           sRequestDialog = new GameRequestDialog(activity);
+                                           sRequestDialog.registerCallback(
+                                                   sCallbackManager,
+                                                   requestCallback);
                                            sRequestDialog.show(requestContent);
                 } else //noinspection StatementWithEmptyBody
                     if (action.equals("place") || action.equals("friends")) {

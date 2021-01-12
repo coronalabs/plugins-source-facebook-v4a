@@ -744,7 +744,7 @@ IOSFBConnect::RequestPermissions( NSArray *permission ) const
 	
 	if ( permission && permission.count > 0 )
 	{
-		 [fLoginManager logInWithPermissions:permission fromViewController:nil handler:^( FBSDKLoginManagerLoginResult *result, NSError *error )
+		 [fLoginManager logInWithPermissions:permission fromViewController:fRuntime.appViewController handler:^( FBSDKLoginManagerLoginResult *result, NSError *error )
 		 {
 			 HandleRequestPermissionsResponse( result, error );
 		 }];

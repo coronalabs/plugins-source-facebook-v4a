@@ -63,6 +63,7 @@ build_plugin_structure() {
 	mkdir -p "$PLUGIN_DEST"
 	PLATFORM=$2
 	ARCH=$3
+	EmbeddedFrameworks=$4
 
 	cp "$path/build/$CONFIG-$PLATFORM/lib$TARGET_NAME.$OUTPUT_SUFFIX" "$PLUGIN_DEST/"
 	cp "$path"/metadata.lua "$PLUGIN_DEST/"
@@ -76,10 +77,10 @@ build_plugin_structure() {
 	fi
 
 
-	if ls "$path"/EmbeddedFrameworks/*.framework 1> /dev/null 2>&1; then
+	if ls "$path"/$EmbeddedFrameworks/*.framework 1> /dev/null 2>&1; then
 		echo "Copying Embedded frameworks frameworks for $PLATFORM:"
 
-		for f in "$path"/EmbeddedFrameworks/*.framework; do
+		for f in "$path"/$EmbeddedFrameworks/*.framework; do
 			FRAMEWORK_NAME=$(basename "$f")
 			BIN_NAME=${FRAMEWORK_NAME%.framework}
 			SRC_BIN="$f"/$BIN_NAME
@@ -114,9 +115,9 @@ build_plugin_structure() {
 
 
 
-build_plugin_structure "$OUTPUT_DIR/BuiltPlugin/iphone" iphoneos  " -extract armv7 -extract  arm64 "
+build_plugin_structure "$OUTPUT_DIR/BuiltPlugin/iphone" iphoneos  " -extract armv7 -extract  arm64 " EmbeddedFrameworks
 
-build_plugin_structure "$OUTPUT_DIR/BuiltPlugin/iphone-sim" iphonesimulator  " -extract i386  -extract  x86_64 "
+build_plugin_structure "$OUTPUT_DIR/BuiltPlugin/iphone-sim" iphonesimulator  " -extract i386  -extract  x86_64 " EmbeddedFrameworksSim
 
 
 

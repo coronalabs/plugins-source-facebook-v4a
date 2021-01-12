@@ -17,6 +17,8 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Process;
@@ -1452,12 +1454,20 @@ class FacebookController {
                                                                photoUri = Uri.parse(photoUrl);
                                                            }
 
-                                                           // Make the SharePhoto and add it to the list.
-                                                           SharePhoto sharePhoto = new SharePhoto.Builder()
-                                                                   .setCaption(caption)
-                                                                   .setImageUrl(photoUri)
-                                                                   .build();
-                                                           sharePhotosList.add(sharePhoto);
+                                                           SharePhoto.Builder spb = new SharePhoto.Builder().setCaption(caption);
+                                                           if("file".equalsIgnoreCase(photoUri != null ? photoUri.getScheme() : "")) {
+                                                               Bitmap bitmap = BitmapFactory.decodeFile( photoUri.getPath());
+                                                               if(bitmap == null) {
+                                                                   bitmap = BitmapFactory.decodeFile( "/data" + photoUri.getPath());
+                                                               }
+                                                               if(bitmap != null) {
+                                                                   spb.setBitmap(bitmap);
+                                                               }
+                                                           } else {
+                                                               // Make the SharePhoto and add it to the list.
+                                                               spb.setImageUrl(photoUri);
+                                                           }
+                                                           sharePhotosList.add(spb.build());
                                                        }
 
                                                        // Create the SharePhotoContent and present the dialog

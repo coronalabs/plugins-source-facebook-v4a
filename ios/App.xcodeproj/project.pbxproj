@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXAggregateTarget section */
@@ -61,14 +61,14 @@
 		C22C1E4B1E981D9000D74196 /* LaunchScreen.storyboardc in Resources */ = {isa = PBXBuildFile; fileRef = C22C1E4A1E981D9000D74196 /* LaunchScreen.storyboardc */; };
 		E640B2F21BFC00B00031FAE9 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E640B2F11BFC00B00031FAE9 /* AssetsLibrary.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		E640B2F41BFC00BA0031FAE9 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E640B2F31BFC00BA0031FAE9 /* Photos.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		F50C675125ADAE0700C30AE6 /* FBSDKLoginKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F50C674E25ADAE0700C30AE6 /* FBSDKLoginKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		F50C675225ADAE0700C30AE6 /* FBSDKShareKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F50C674F25ADAE0700C30AE6 /* FBSDKShareKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		F50C675325ADAE0700C30AE6 /* FBSDKCoreKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F50C675025ADAE0700C30AE6 /* FBSDKCoreKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		F50C675525ADAE3400C30AE6 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F50C675025ADAE0700C30AE6 /* FBSDKCoreKit.framework */; };
+		F50C675625ADAE3400C30AE6 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F50C674E25ADAE0700C30AE6 /* FBSDKLoginKit.framework */; };
+		F50C675725ADAE3400C30AE6 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F50C674F25ADAE0700C30AE6 /* FBSDKShareKit.framework */; };
 		F51C66D61EE0D3B20040E4BE /* libplugin_facebook.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A4E253E2166DE7C800DCDC2C /* libplugin_facebook.a */; };
 		F56457D91FA108F500EC8C29 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F56712391F73451B006B502D /* Images.xcassets */; };
-		F57E12DF23ED701900BB4466 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C32EB28203B29AD00E81325 /* FBSDKCoreKit.framework */; };
-		F57E12E023ED701900BB4466 /* FBSDKCoreKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1C32EB28203B29AD00E81325 /* FBSDKCoreKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		F57E12E223ED701A00BB4466 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C32EB29203B29AD00E81325 /* FBSDKLoginKit.framework */; };
-		F57E12E323ED701A00BB4466 /* FBSDKLoginKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1C32EB29203B29AD00E81325 /* FBSDKLoginKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		F57E12E423ED701C00BB4466 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C32EB2B203B29AD00E81325 /* FBSDKShareKit.framework */; };
-		F57E12E523ED701C00BB4466 /* FBSDKShareKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1C32EB2B203B29AD00E81325 /* FBSDKShareKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F5BB41531BC42ACF0033F6FA /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5BB41521BC42ACF0033F6FA /* CoreText.framework */; };
 		F5C9F4811ED39AD100D34A2D /* _CoronaSplashScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = C277D3B51EBB9F8E00966BA1 /* _CoronaSplashScreen.png */; };
 		F5E548091BE7FF0200091810 /* GameController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5E548081BE7FF0200091810 /* GameController.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
@@ -98,9 +98,9 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				F57E12E323ED701A00BB4466 /* FBSDKLoginKit.framework in Embed Frameworks */,
-				F57E12E023ED701900BB4466 /* FBSDKCoreKit.framework in Embed Frameworks */,
-				F57E12E523ED701C00BB4466 /* FBSDKShareKit.framework in Embed Frameworks */,
+				F50C675125ADAE0700C30AE6 /* FBSDKLoginKit.framework in Embed Frameworks */,
+				F50C675225ADAE0700C30AE6 /* FBSDKShareKit.framework in Embed Frameworks */,
+				F50C675325ADAE0700C30AE6 /* FBSDKCoreKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -108,9 +108,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		1C32EB28203B29AD00E81325 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = EmbeddedFrameworks/FBSDKCoreKit.framework; sourceTree = "<group>"; };
-		1C32EB29203B29AD00E81325 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = EmbeddedFrameworks/FBSDKLoginKit.framework; sourceTree = "<group>"; };
-		1C32EB2B203B29AD00E81325 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = EmbeddedFrameworks/FBSDKShareKit.framework; sourceTree = "<group>"; };
 		A447B60E165D72FB009EA762 /* AppCoronaDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppCoronaDelegate.h; sourceTree = SOURCE_ROOT; };
 		A447B60F165D72FB009EA762 /* AppCoronaDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AppCoronaDelegate.mm; sourceTree = SOURCE_ROOT; };
 		A447B6641666FD02009EA762 /* MainWindow-iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = "MainWindow-iPad.xib"; path = "Corona/ios/resource/MainWindow-iPad.xib"; sourceTree = "<group>"; };
@@ -124,7 +121,7 @@
 		A484112115114F700074BD57 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		A484112315114F700074BD57 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
 		A484112515114F700074BD57 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
-		A484112915114F700074BD57 /* App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "App-Info.plist"; sourceTree = SOURCE_ROOT; };
+		A484112915114F700074BD57 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = SOURCE_ROOT; };
 		A484112B15114F700074BD57 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A484112D15114F700074BD57 /* main.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = SOURCE_ROOT; };
 		A484112F15114F700074BD57 /* Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = SOURCE_ROOT; };
@@ -158,6 +155,9 @@
 		C277D3B51EBB9F8E00966BA1 /* _CoronaSplashScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = _CoronaSplashScreen.png; sourceTree = "<group>"; };
 		E640B2F11BFC00B00031FAE9 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		E640B2F31BFC00BA0031FAE9 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
+		F50C674E25ADAE0700C30AE6 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = EmbeddedFrameworks/FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		F50C674F25ADAE0700C30AE6 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = EmbeddedFrameworks/FBSDKShareKit.framework; sourceTree = "<group>"; };
+		F50C675025ADAE0700C30AE6 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = EmbeddedFrameworks/FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		F54A40BD1EE07F9100AF417D /* build.settings */ = {isa = PBXFileReference; lastKnownFileType = text; name = build.settings; path = ../Corona/build.settings; sourceTree = "<group>"; };
 		F54A40BE1EE07F9100AF417D /* config.lua */ = {isa = PBXFileReference; lastKnownFileType = text; name = config.lua; path = ../Corona/config.lua; sourceTree = "<group>"; };
 		F55829801ED23E1200E5808C /* CoronaApp.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = CoronaApp.xcconfig; sourceTree = "<group>"; };
@@ -182,9 +182,10 @@
 				A4C2449C1683FA5300C395D1 /* Social.framework in Frameworks */,
 				A484117715128D5D0074BD57 /* AddressBook.framework in Frameworks */,
 				A484117815128D5D0074BD57 /* AddressBookUI.framework in Frameworks */,
+				F50C675625ADAE3400C30AE6 /* FBSDKLoginKit.framework in Frameworks */,
 				A484117915128D5D0074BD57 /* AudioToolbox.framework in Frameworks */,
+				F50C675725ADAE3400C30AE6 /* FBSDKShareKit.framework in Frameworks */,
 				A484117A15128D5D0074BD57 /* AVFoundation.framework in Frameworks */,
-				F57E12E423ED701C00BB4466 /* FBSDKShareKit.framework in Frameworks */,
 				A484117B15128D5D0074BD57 /* CFNetwork.framework in Frameworks */,
 				A484112215114F700074BD57 /* CoreGraphics.framework in Frameworks */,
 				A484117C15128D5D0074BD57 /* CoreLocation.framework in Frameworks */,
@@ -198,13 +199,12 @@
 				A48411CA15129F610074BD57 /* libsqlite3.dylib in Frameworks */,
 				A484118215128D5D0074BD57 /* MapKit.framework in Frameworks */,
 				A484118315128D5D0074BD57 /* MediaPlayer.framework in Frameworks */,
-				F57E12DF23ED701900BB4466 /* FBSDKCoreKit.framework in Frameworks */,
+				F50C675525ADAE3400C30AE6 /* FBSDKCoreKit.framework in Frameworks */,
 				A484118415128D5D0074BD57 /* MessageUI.framework in Frameworks */,
 				A484118515128D5D0074BD57 /* MobileCoreServices.framework in Frameworks */,
 				A484118615128D5D0074BD57 /* OpenAL.framework in Frameworks */,
 				A484112615114F700074BD57 /* OpenGLES.framework in Frameworks */,
 				A484118715128D5D0074BD57 /* QuartzCore.framework in Frameworks */,
-				F57E12E223ED701A00BB4466 /* FBSDKLoginKit.framework in Frameworks */,
 				A484118815128D5D0074BD57 /* Security.framework in Frameworks */,
 				A484118915128D5D0074BD57 /* StoreKit.framework in Frameworks */,
 				A484118A15128D5D0074BD57 /* SystemConfiguration.framework in Frameworks */,
@@ -259,9 +259,9 @@
 		A484111C15114F700074BD57 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				1C32EB28203B29AD00E81325 /* FBSDKCoreKit.framework */,
-				1C32EB29203B29AD00E81325 /* FBSDKLoginKit.framework */,
-				1C32EB2B203B29AD00E81325 /* FBSDKShareKit.framework */,
+				F50C675025ADAE0700C30AE6 /* FBSDKCoreKit.framework */,
+				F50C674E25ADAE0700C30AE6 /* FBSDKLoginKit.framework */,
+				F50C674F25ADAE0700C30AE6 /* FBSDKShareKit.framework */,
 				E640B2F31BFC00BA0031FAE9 /* Photos.framework */,
 				E640B2F11BFC00B00031FAE9 /* AssetsLibrary.framework */,
 				F5E548081BE7FF0200091810 /* GameController.framework */,
@@ -305,7 +305,7 @@
 			children = (
 				F56712391F73451B006B502D /* Images.xcassets */,
 				C277D3B51EBB9F8E00966BA1 /* _CoronaSplashScreen.png */,
-				A484112915114F700074BD57 /* App-Info.plist */,
+				A484112915114F700074BD57 /* Info.plist */,
 				A484112A15114F700074BD57 /* InfoPlist.strings */,
 				C22C1E4A1E981D9000D74196 /* LaunchScreen.storyboardc */,
 				A484112D15114F700074BD57 /* main.mm */,
@@ -349,7 +349,6 @@
 				A484111615114F700074BD57 /* Frameworks */,
 				A4841162151268030074BD57 /* Compile Corona Project */,
 				A484118B15128E320074BD57 /* build.settings to Info.plist */,
-				A484118F1512906B0074BD57 /* Certify Corona Build */,
 				A484119015129A930074BD57 /* Touch main.mm to ensure build */,
 				F57E12E123ED701900BB4466 /* Embed Frameworks */,
 			);
@@ -452,8 +451,11 @@
 		};
 		A484118B15128E320074BD57 /* build.settings to Info.plist */ = {
 			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			inputFileListPaths = (
 			);
 			inputPaths = (
 			);
@@ -463,22 +465,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"$CORONA_ROOT\"/Corona/mac/bin/CreateInfoPlist.sh\n\nif [ $? -ne 0 ]\nthen\n    echo \"Exiting due to errors (above)\"\n    exit -1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		A484118F1512906B0074BD57 /* Certify Corona Build */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Certify Corona Build";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"$CORONA_ROOT\"/Corona/mac/bin/CertifyBuild.sh\n\nif [ $? -ne 0 ]\nthen\n    echo \"Exiting due to errors (above)\"\n    exit -1\nfi\n";
-			showEnvVarsInLog = 0;
 		};
 		A484119015129A930074BD57 /* Touch main.mm to ensure build */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -675,8 +661,11 @@
 				GCC_PREFIX_HEADER = Prefix.pch;
 				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
-				INFOPLIST_FILE = "App-Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				INFOPLIST_FILE = Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.coronalabs.iCloudTestApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SEPARATE_STRIP = YES;
@@ -702,8 +691,11 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Prefix.pch;
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
-				INFOPLIST_FILE = "App-Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				INFOPLIST_FILE = Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.coronalabs.iCloudTestApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SEPARATE_STRIP = YES;

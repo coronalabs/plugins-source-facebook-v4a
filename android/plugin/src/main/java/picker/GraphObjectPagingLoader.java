@@ -21,7 +21,7 @@
 package picker;
 
 import android.content.Context;
-import android.support.v4.content.Loader;
+import androidx.loader.content.Loader;
 
 import com.facebook.*;
 import org.json.JSONArray;

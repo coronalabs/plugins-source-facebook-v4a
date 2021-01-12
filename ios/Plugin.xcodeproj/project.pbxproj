@@ -7,9 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1C32EB0B203B21D200E81325 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C32EB07203B21D200E81325 /* FBSDKCoreKit.framework */; };
-		1C32EB0C203B21D200E81325 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C32EB08203B21D200E81325 /* FBSDKLoginKit.framework */; };
-		1C32EB0E203B21D200E81325 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C32EB0A203B21D200E81325 /* FBSDKShareKit.framework */; };
 		F56B879A2370D5770091376E /* FacebookLibrary.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1C32EB1E203B222E00E81325 /* FacebookLibrary.cpp */; };
 		F56B879B2370D5770091376E /* FBConnect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1C32EB20203B222E00E81325 /* FBConnect.cpp */; };
 		F56B879C2370D5770091376E /* FBConnectEvent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1C32EB22203B222E00E81325 /* FBConnectEvent.cpp */; };
@@ -34,9 +31,6 @@
 		1C32EAFD203B211100E81325 /* IOSFBConnect.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = IOSFBConnect.mm; path = Plugin/IOSFBConnect.mm; sourceTree = "<group>"; };
 		1C32EAFE203B211100E81325 /* IOSFBConnect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IOSFBConnect.h; path = Plugin/IOSFBConnect.h; sourceTree = "<group>"; };
 		1C32EB00203B211100E81325 /* CoronaFacebookDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoronaFacebookDelegate.h; path = Plugin/CoronaFacebookDelegate.h; sourceTree = "<group>"; };
-		1C32EB07203B21D200E81325 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = EmbeddedFrameworks/FBSDKCoreKit.framework; sourceTree = "<group>"; };
-		1C32EB08203B21D200E81325 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = EmbeddedFrameworks/FBSDKLoginKit.framework; sourceTree = "<group>"; };
-		1C32EB0A203B21D200E81325 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = EmbeddedFrameworks/FBSDKShareKit.framework; sourceTree = "<group>"; };
 		1C32EB1E203B222E00E81325 /* FacebookLibrary.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FacebookLibrary.cpp; sourceTree = "<group>"; };
 		1C32EB1F203B222E00E81325 /* FacebookLibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacebookLibrary.h; sourceTree = "<group>"; };
 		1C32EB20203B222E00E81325 /* FBConnect.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FBConnect.cpp; sourceTree = "<group>"; };
@@ -45,7 +39,6 @@
 		1C32EB23203B222E00E81325 /* FBConnectEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBConnectEvent.h; sourceTree = "<group>"; };
 		A4E253B6166D6FB300DCDC2C /* libplugin_facebook.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libplugin_facebook.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F56B87882370AEF40091376E /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Accounts.framework; sourceTree = DEVELOPER_DIR; };
-		F56B878D2370B2DD0091376E /* FacebookPlugin.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = FacebookPlugin.mm; sourceTree = "<group>"; };
 		F572F81A1EE0705B001BC814 /* CoronaNative.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = CoronaNative.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -54,9 +47,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1C32EB0B203B21D200E81325 /* FBSDKCoreKit.framework in Frameworks */,
-				1C32EB0C203B21D200E81325 /* FBSDKLoginKit.framework in Frameworks */,
-				1C32EB0E203B21D200E81325 /* FBSDKShareKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -67,9 +57,6 @@
 			isa = PBXGroup;
 			children = (
 				F56B87882370AEF40091376E /* Accounts.framework */,
-				1C32EB07203B21D200E81325 /* FBSDKCoreKit.framework */,
-				1C32EB08203B21D200E81325 /* FBSDKLoginKit.framework */,
-				1C32EB0A203B21D200E81325 /* FBSDKShareKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -95,7 +82,6 @@
 				1C32EAFC203B211100E81325 /* CoronaFacebookDelegate.mm */,
 				1C32EAFE203B211100E81325 /* IOSFBConnect.h */,
 				1C32EAFD203B211100E81325 /* IOSFBConnect.mm */,
-				F56B878D2370B2DD0091376E /* FacebookPlugin.mm */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -154,7 +140,7 @@
 		A484111015114F700074BD57 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1120;
+				LastUpgradeCheck = 1230;
 			};
 			buildConfigurationList = A484111315114F700074BD57 /* Build configuration list for PBXProject "Plugin" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -228,6 +214,7 @@
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -237,6 +224,7 @@
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -281,6 +269,7 @@
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -289,6 +278,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
@@ -315,10 +305,6 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				DSTROOT = /tmp/plugin_library.dst;
 				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/EmbeddedFrameworks",
-				);
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					BUCK,
@@ -339,10 +325,6 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				DSTROOT = /tmp/plugin_library.dst;
 				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/EmbeddedFrameworks",
-				);
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					BUCK,

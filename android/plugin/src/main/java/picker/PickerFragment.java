@@ -21,10 +21,10 @@
 package picker;
 
 import android.app.Activity;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.LoaderManager;
+import androidx.fragment.app.Fragment;
+import androidx.loader.app.LoaderManager;
 import android.content.Context;
-import android.support.v4.content.Loader;
+import androidx.loader.content.Loader;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;

@@ -105,12 +105,14 @@ local function processFBCommand()
 	-- This displays a Facebook dialog for posting photos to your photo album
 	elseif requestedFBCommand == SHARE_PHOTO_DIALOG then
 		-- Create table with photo data to share
+		display.save( mainGroup, "group.jpg", system.TemporaryDirectory )
+		local screenshot = system.pathForFile("group.jpg", system.TemporaryDirectory)
 		local photoData = {
 			photos = {
-				{ url = "https://coronalabs.com/wordpress/wp-content/uploads/2018/07/orange_vertikal_RGB.png", },
+				{ url = "file:/" .. screenshot, },
 			},
 		}
-		response = facebook.showDialog( "photo", photoData )		
+		response = facebook.showDialog( "photo", photoData )
 
 	-- Request the current logged in user's info
 	elseif requestedFBCommand == GET_USER_INFO then

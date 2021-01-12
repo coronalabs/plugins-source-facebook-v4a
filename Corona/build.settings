@@ -7,7 +7,7 @@
 -- https://docs.coronalabs.com/guide/social/setupFacebook/index.html
 
 -- When you've got your Facebook App ID enter it here:
-local myFacebookAppID = "174574592667103"
+local myFacebookAppID = "407318409718485"
 
 settings =
 {
@@ -34,8 +34,10 @@ settings =
 					}
 				}
 			},
+			FacebookAutoLogAppEventsEnabled = false,
+			FacebookAdvertiserIDCollectionEnabled = false,
 			FacebookAppID = myFacebookAppID,
-
+			FacebookDisplayName = "Corona_Test_App",
 			UILaunchStoryboardName = "LaunchScreen",
 			ITSAppUsesNonExemptEncryption = false, -- This sample doesn't use custom encryption
 			LSApplicationQueriesSchemes =
@@ -45,6 +47,19 @@ settings =
 				"fbauth2",
 				"fb-messenger-api",
 				"fbshareextension",
+				"fbapi",
+				"fbapi20130214",
+				"fbapi20130410",
+				"fbapi20130702",
+				"fbapi20131010",
+				"fbapi20131219",
+				"fbapi20140410",
+				"fbapi20140116",
+				"fbapi20150313",
+				"fbapi20150629",
+				"fbapi20160328",
+				"fbauth",
+				"fb-messenger-share-api",
 			},
 		},
 	},
@@ -57,7 +72,7 @@ settings =
             "android.permission.INTERNET",
         },
 
-	},	
+	},
 
 	window =
 	{

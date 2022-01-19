@@ -1,43 +1,27 @@
-// Copyright (c) 2014-present, Facebook, Inc. All rights reserved.
-//
-// You are hereby granted a non-exclusive, worldwide, royalty-free license to use,
-// copy, modify, and distribute this software in source code or binary form for use
-// in connection with the web services and APIs provided by Facebook.
-//
-// As with any software that integrates with the Facebook platform, your use of
-// this software is subject to the Facebook Developer Principles and Policies
-// [http://developers.facebook.com/policy/]. This copyright notice shall be
-// included in all copies or substantial portions of the software.
-//
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
-// FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
-// COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
-// IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
-// CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-#import "TargetConditionals.h"
+/*
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ * All rights reserved.
+ *
+ * This source code is licensed under the license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
 
 #if !TARGET_OS_TV
 
 #import <Foundation/Foundation.h>
 
-#ifdef BUCK
 #import <FBSDKCoreKit/FBSDKConstants.h>
-#else
-#import "FBSDKConstants.h"
-#endif
 
 NS_ASSUME_NONNULL_BEGIN
 
 @class FBSDKGraphErrorRecoveryProcessor;
-@class FBSDKGraphRequest;
+@protocol FBSDKGraphRequest;
 
 /**
   Defines a delegate for `FBSDKGraphErrorRecoveryProcessor`.
  */
 NS_SWIFT_NAME(GraphErrorRecoveryProcessorDelegate)
-@protocol FBSDKGraphErrorRecoveryProcessorDelegate<NSObject>
+@protocol FBSDKGraphErrorRecoveryProcessorDelegate <NSObject>
 
 /**
   Indicates the error recovery has been attempted.
@@ -77,7 +61,7 @@ NS_ASSUME_NONNULL_BEGIN
  1. If the error is temporary as indicated by FBSDKGraphRequestErrorKey, assume the recovery succeeded and
  notify the delegate.
  2. If a FBSDKErrorRecoveryAttempting instance is available, display an alert (dispatched to main thread)
- with the recovery options and call the instance's [ attemptRecoveryFromError:optionIndex:...].
+ with the recovery options and call the instance's attemptRecoveryFromError method.
  3. If a FBSDKErrorRecoveryAttempting is not available, check the userInfo for FBSDKLocalizedErrorDescriptionKey
  and present that in an alert (dispatched to main thread).
 
@@ -92,13 +76,13 @@ NS_ASSUME_NONNULL_BEGIN
  the `[FBSDKAccessToken currentAccessToken]` might still have been updated.
  .
  */
-NS_SWIFT_UNAVAILABLE("")
+NS_SWIFT_NAME(GraphErrorRecoveryProcessor)
 @interface FBSDKGraphErrorRecoveryProcessor : NSObject
 
 /**
-  Gets the delegate. Note this is a strong reference, and is nil'ed out after recovery is complete.
+ Initializes a GraphErrorRecoveryProcessor with an access token string.
  */
-@property (nonatomic, strong, readonly, nullable) id<FBSDKGraphErrorRecoveryProcessorDelegate>delegate;
+- (instancetype)initWithAccessTokenString:(NSString *)accessTokenString;
 
 /**
   Attempts to process the error, return YES if the error can be processed.
@@ -107,15 +91,8 @@ NS_SWIFT_UNAVAILABLE("")
  @param delegate the delegate that will be retained until recovery is complete.
  */
 - (BOOL)processError:(NSError *)error
-             request:(FBSDKGraphRequest *)request
+             request:(id<FBSDKGraphRequest>)request
             delegate:(nullable id<FBSDKGraphErrorRecoveryProcessorDelegate>)delegate;
-
-/**
-  The callback for FBSDKErrorRecoveryAttempting
- @param didRecover if the recovery succeeded
- @param contextInfo unused
- */
-- (void)didPresentErrorWithRecovery:(BOOL)didRecover contextInfo:(nullable void *)contextInfo;
 
 @end
 

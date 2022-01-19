@@ -280,15 +280,15 @@ FacebookLibrary::login( lua_State *L )
 			index++;
 		}
 		
-		// TODO: Refactor native login to be part of a params table passed to facebook.login().
-		// See if we want to use native login
-		bool attemptNativeLogin = false;
+		// See if we want to use limited login
+		bool limitedLogin = false;
 		if ( lua_isboolean( L, index ) )
 		{
-			attemptNativeLogin = lua_toboolean( L, index );
+            limitedLogin = lua_toboolean( L, index );
+            
 		}
 		
-		connect->Login( permissions, numPermissions, attemptNativeLogin );
+		connect->Login( permissions, numPermissions, limitedLogin );
 		
 		if ( permissions )
 		{

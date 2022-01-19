@@ -877,6 +877,7 @@ class FacebookController {
                         fbActivityResultHandler, 0xface); //100
                 if (!FacebookSdk.isInitialized()) {
                     // Initialize the Facebook SDK
+
                     FacebookSdk.sdkInitialize(activity.getApplicationContext(), requestCodeOffset);
                 }
 

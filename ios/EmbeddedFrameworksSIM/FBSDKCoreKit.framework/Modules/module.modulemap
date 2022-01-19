@@ -1,8 +1,8 @@
 framework module FBSDKCoreKit {
-  umbrella header "FBSDKCoreKit-umbrella.h"
+    umbrella header "FBSDKCoreKit.h"
 
-  export *
-  module * { export * }
+    export *
+    module * { export * }
 }
 
 module FBSDKCoreKit.Swift {

@@ -1,22 +1,14 @@
-// Copyright (c) 2014-present, Facebook, Inc. All rights reserved.
-//
-// You are hereby granted a non-exclusive, worldwide, royalty-free license to use,
-// copy, modify, and distribute this software in source code or binary form for use
-// in connection with the web services and APIs provided by Facebook.
-//
-// As with any software that integrates with the Facebook platform, your use of
-// this software is subject to the Facebook Developer Principles and Policies
-// [http://developers.facebook.com/policy/]. This copyright notice shall be
-// included in all copies or substantial portions of the software.
-//
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
-// FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
-// COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
-// IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
-// CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+/*
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ * All rights reserved.
+ *
+ * This source code is licensed under the license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
 
 #import <UIKit/UIKit.h>
+
+#import <FBSDKCoreKit/FBSDKApplicationObserving.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -63,7 +55,6 @@ NS_SWIFT_NAME(shared);
   sourceApplication:(nullable NSString *)sourceApplication
          annotation:(nullable id)annotation;
 
-#if __IPHONE_OS_VERSION_MAX_ALLOWED > __IPHONE_9_0
 /**
   Call this method from the [UIApplicationDelegate application:openURL:options:] method
  of the AppDelegate for your app. It should be invoked for the proper processing of responses during interaction
@@ -80,7 +71,6 @@ NS_SWIFT_NAME(shared);
 - (BOOL)application:(UIApplication *)application
             openURL:(NSURL *)url
             options:(NSDictionary<UIApplicationOpenURLOptionsKey, id> *)options;
-#endif
 
 /**
   Call this method from the [UIApplicationDelegate application:didFinishLaunchingWithOptions:] method
@@ -92,20 +82,36 @@ controlled via 'FacebookAutoLogAppEventsEnabled' key in the project info plist f
 
  @param launchOptions The launchOptions as passed to [UIApplicationDelegate application:didFinishLaunchingWithOptions:].
 
- @return YES if the url was intended for the Facebook SDK, NO if not.
+ @return True if there are any added application observers that themselves return true from calling `application:didFinishLaunchingWithOptions:`.
+   Otherwise will return false. Note: If this method is called after calling `initializeSDK` then the return type will always be false.
  */
-- (BOOL)application:(UIApplication *)application
-didFinishLaunchingWithOptions:(nullable NSDictionary<UIApplicationLaunchOptionsKey, id> *)launchOptions;
+- (BOOL)            application:(UIApplication *)application
+  didFinishLaunchingWithOptions:(nullable NSDictionary<UIApplicationLaunchOptionsKey, id> *)launchOptions;
 
 /**
-  Call this method to manually initialize SDK.
-  As we initialize SDK automatically, this should only be called when auto initialization is disabled, this can be
- controlled via 'FacebookAutoInitEnabled' key in the project info plist file.
+ Initializes the SDK.
 
- @param launchOptions The launchOptions as passed to [UIApplicationDelegate application:didFinishLaunchingWithOptions:].
- Could be nil if you don't call this function from [UIApplicationDelegate application:didFinishLaunchingWithOptions:].
+ If you are using the SDK within the context of the UIApplication lifecycle, do not use this method.
+ Instead use `application: didFinishLaunchingWithOptions:`.
+
+ As part of SDK initialization basic auto logging of app events will occur, this can be
+ controlled via 'FacebookAutoLogAppEventsEnabled' key in the project info plist file.
  */
-+ (void)initializeSDK:(nullable NSDictionary<UIApplicationLaunchOptionsKey, id> *)launchOptions;
+- (void)initializeSDK;
+
+/**
+  Adds an observer that will be informed about application lifecycle events.
+
+  @note Observers are weakly held
+ */
+- (void)addObserver:(id<FBSDKApplicationObserving>)observer;
+
+/**
+  Removes an observer so that it will no longer be informed about application lifecycle events.
+
+  @note Observers are weakly held
+ */
+- (void)removeObserver:(id<FBSDKApplicationObserving>)observer;
 
 @end
 

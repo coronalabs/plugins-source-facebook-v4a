@@ -15,6 +15,7 @@ import com.ansca.corona.CoronaEnvironment;
 import com.ansca.corona.CoronaLua;
 import com.ansca.corona.CoronaRuntime;
 import com.ansca.corona.CoronaRuntimeProvider;
+import com.ansca.corona.CoronaSystemApiHandler;
 import com.facebook.FacebookSdk;
 import com.naef.jnlua.JavaFunction;
 import com.naef.jnlua.LuaState;
@@ -223,7 +224,7 @@ public class LuaLoader implements JavaFunction {
 		public int invoke(LuaState L) {
 			String methodName = "facebook." + getName() + "()";
 			ArrayList<String> permissions = new ArrayList<>();
-
+			Boolean limitedLogin = false;
 			// Parse args if there are any
 			if (L.getTop() != 0) {
 				int index = 1;
@@ -248,6 +249,12 @@ public class LuaLoader implements JavaFunction {
 						permissions.add(L.toString(-1));
 						L.pop(1);
 					}
+					index++;
+				}
+				//Limited Login has not been added to Android(yet?)
+				if (L.type(index) == LuaType.BOOLEAN) {
+					limitedLogin = L.toBoolean(index);
+					System.out.print("Warning: Limited Login is not supported on Android");
 				}
 			}
 

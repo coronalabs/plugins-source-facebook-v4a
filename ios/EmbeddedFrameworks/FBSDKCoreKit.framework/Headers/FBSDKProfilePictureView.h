@@ -1,22 +1,10 @@
-// Copyright (c) 2014-present, Facebook, Inc. All rights reserved.
-//
-// You are hereby granted a non-exclusive, worldwide, royalty-free license to use,
-// copy, modify, and distribute this software in source code or binary form for use
-// in connection with the web services and APIs provided by Facebook.
-//
-// As with any software that integrates with the Facebook platform, your use of
-// this software is subject to the Facebook Developer Principles and Policies
-// [http://developers.facebook.com/policy/]. This copyright notice shall be
-// included in all copies or substantial portions of the software.
-//
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
-// FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
-// COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
-// IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
-// CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-#import "TargetConditionals.h"
+/*
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ * All rights reserved.
+ *
+ * This source code is licensed under the license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
 
 #if !TARGET_OS_TV
 
@@ -30,8 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
  FBSDKProfilePictureMode enum
   Defines the aspect ratio mode for the source image of the profile picture.
  */
-typedef NS_ENUM(NSUInteger, FBSDKProfilePictureMode)
-{
+typedef NS_ENUM(NSUInteger, FBSDKProfilePictureMode) {
   /**
     A square cropped version of the image will be included in the view.
    */
@@ -67,14 +54,14 @@ NS_SWIFT_NAME(FBProfilePictureView)
  - Parameter profile: Optional profile to display a picture for.
  */
 - (instancetype)initWithFrame:(CGRect)frame
-                      profile:(FBSDKProfile * _Nullable)profile;
+                      profile:(FBSDKProfile *_Nullable)profile;
 
 /**
  Create a new instance of `FBSDKProfilePictureView`.
 
  - Parameter profile: Optional profile to display a picture for.
  */
-- (instancetype)initWithProfile:(FBSDKProfile * _Nullable)profile;
+- (instancetype)initWithProfile:(FBSDKProfile *_Nullable)profile;
 
 /**
   The mode for the receiver to determine the aspect ratio of the source image.

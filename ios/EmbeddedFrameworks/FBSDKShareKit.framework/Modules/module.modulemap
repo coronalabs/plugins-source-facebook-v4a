@@ -1,8 +1,8 @@
 framework module FBSDKShareKit {
-  umbrella header "FBSDKShareKit-umbrella.h"
+    umbrella header "FBSDKShareKit.h"
 
-  export *
-  module * { export * }
+    export *
+    module * { export * }
 }
 
 module FBSDKShareKit.Swift {

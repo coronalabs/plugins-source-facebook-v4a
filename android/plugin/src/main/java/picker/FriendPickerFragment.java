@@ -282,7 +282,7 @@ public class FriendPickerFragment extends PickerFragment {
         parameters.putString(AnalyticsEvents.PARAMETER_DIALOG_OUTCOME, outcome);
         parameters.putInt("num_friends_picked", getSelection().size());
 
-        logger.logSdkEvent(AnalyticsEvents.EVENT_FRIEND_PICKER_USAGE, null, parameters);
+        logger.logEvent(AnalyticsEvents.EVENT_FRIEND_PICKER_USAGE, parameters);
     }
 
     @Override

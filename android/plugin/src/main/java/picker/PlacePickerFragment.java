@@ -345,7 +345,7 @@ public class PlacePickerFragment extends PickerFragment {
         parameters.putString(AnalyticsEvents.PARAMETER_DIALOG_OUTCOME, outcome);
         parameters.putInt("num_places_picked", (getSelection() != null) ? 1 : 0);
 
-        logger.logSdkEvent(AnalyticsEvents.EVENT_PLACE_PICKER_USAGE, null, parameters);
+        logger.logEvent(AnalyticsEvents.EVENT_PLACE_PICKER_USAGE, parameters);
     }
 
     @Override

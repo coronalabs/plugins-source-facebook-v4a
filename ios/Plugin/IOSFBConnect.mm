@@ -508,8 +508,7 @@ FBSDKShareDialog*
 IOSFBConnect::newShareDialogWithCoronaConfiguration() const
 {
 	// Create the share dialog and do universal configuration for it
-	FBSDKShareDialog *dialog = [[[FBSDKShareDialog alloc] init] autorelease];
-	dialog.delegate = fShareDialogDelegate;
+	FBSDKShareDialog *dialog = [[[FBSDKShareDialog alloc] initWithViewController:nil content:nil delegate:fShareDialogDelegate] autorelease];
 	
 	// Presenting the share dialog behaves differently depending on whether the user has the Facebook app installed on their device or not.
 	// With the Facebook app, things like tagging friends and a location are built-in. Otherwise, these things aren't built-in.
@@ -648,9 +647,10 @@ IOSFBConnect::IsFacebookAppEnabled() const
 }
 	
 void
-IOSFBConnect::Login( const char *permissions[], int numPermissions, bool attemptNativeLogin ) const
+IOSFBConnect::Login( const char *permissions[], int numPermissions, bool limitedLogin ) const
 {
 	// The read and publish permissions should be requested seperately
+    
 	NSMutableSet *permissionSet = [[[NSMutableSet alloc] initWithObjects:@"public_profile", nil] autorelease];
 	if ( numPermissions )
 	{
@@ -668,32 +668,36 @@ IOSFBConnect::Login( const char *permissions[], int numPermissions, bool attempt
 			[str release];
 		}
 	}
-	LoginAppropriately(permissionSet.allObjects);
+	LoginAppropriately(permissionSet.allObjects, limitedLogin);
 }
 
 void
-IOSFBConnect::LoginAppropriately( NSArray *permissions ) const
+IOSFBConnect::LoginAppropriately( NSArray *permissions, bool limitedLogin ) const
 {
 	if ( [permissions count] > 0 )
 	{
-		RequestPermissions( permissions );
+		RequestPermissions( permissions, limitedLogin );
 	}
 	else
 	{
-		LoginWithOnlyRequiredPermissions();
+		LoginWithOnlyRequiredPermissions(limitedLogin);
 	}
 }
 	
 void
-IOSFBConnect::LoginWithOnlyRequiredPermissions() const
+IOSFBConnect::LoginWithOnlyRequiredPermissions(bool limitedLogin) const
 {
 	if([[[FBSDKAccessToken currentAccessToken] permissions] containsObject:@"public_profile"]) {
 		LoginStateChanged( FBConnectLoginEvent::kLogin, nil );
 		return;
 	}
- 	[fLoginManager logInWithPermissions:@[@"public_profile"]
-						 fromViewController:nil
-									handler:^(FBSDKLoginManagerLoginResult * _Nullable result, NSError * _Nullable error) {
+    //Setup FB Configuration
+    
+    FBSDKLoginConfiguration *configuration = [[FBSDKLoginConfiguration alloc] initWithPermissions:@[@"public_profile"] tracking:(limitedLogin ? FBSDKLoginTrackingLimited : FBSDKLoginTrackingEnabled) nonce:@"solar2D"];
+    
+ 	[fLoginManager logInFromViewController:nil
+                             configuration:configuration
+                                completion:^(FBSDKLoginManagerLoginResult * _Nullable result, NSError * _Nullable error) {
 		const char functionName[] = "IOSFBConnect::LoginWithOnlyRequiredPermissions::logInWithReadPermissions::handler()";
 		
 		if (error)
@@ -720,7 +724,7 @@ IOSFBConnect::LoginWithOnlyRequiredPermissions() const
 }
 	
 void
-IOSFBConnect::RequestPermissions( NSArray *permission ) const
+IOSFBConnect::RequestPermissions( NSArray *permission, bool limitedLogin ) const
 {
 	// If someone is trying to request additional permissions before doing an initial login, tack on the required read permissions.
 	FBSDKAccessToken *accessToken = [FBSDKAccessToken currentAccessToken];
@@ -744,7 +748,12 @@ IOSFBConnect::RequestPermissions( NSArray *permission ) const
 	
 	if ( permission && permission.count > 0 )
 	{
-		 [fLoginManager logInWithPermissions:permission fromViewController:fRuntime.appViewController handler:^( FBSDKLoginManagerLoginResult *result, NSError *error )
+        //Setup FB Configuration
+        
+        FBSDKLoginConfiguration *configuration = [[FBSDKLoginConfiguration alloc] initWithPermissions:permission tracking:(limitedLogin ? FBSDKLoginTrackingLimited : FBSDKLoginTrackingEnabled) nonce:@"solar2D"];
+		 [fLoginManager logInFromViewController:fRuntime.appViewController
+                                  configuration:configuration
+                                     completion:^( FBSDKLoginManagerLoginResult *result, NSError *error )
 		 {
 			 HandleRequestPermissionsResponse( result, error );
 		 }];
@@ -753,7 +762,7 @@ IOSFBConnect::RequestPermissions( NSArray *permission ) const
 	{
 		// They still need to login, but were a jerk and passed in empty permission arrays.
 		// So login with only required permissions.
-		LoginWithOnlyRequiredPermissions();
+		LoginWithOnlyRequiredPermissions(limitedLogin);
 	}
 	else
 	{
@@ -799,9 +808,9 @@ IOSFBConnect::Request( lua_State *L, const char *path, const char *httpMethod, i
 
 		// To debug Graph Requests, uncomment this line
 		//[FBSDKSettings setLoggingBehavior:[NSSet setWithObject:FBSDKLoggingBehaviorGraphAPIDebugInfo]];
-		
+        
 		[[[FBSDKGraphRequest alloc] initWithGraphPath:pathString parameters:params HTTPMethod:httpMethodString]
-		 startWithCompletionHandler:^( FBSDKGraphRequestConnection *connection, id result, NSError *error )
+         startWithCompletion:^(id<FBSDKGraphRequestConnecting>  _Nullable connection, id  _Nullable result, NSError * _Nullable error)
 		 {
 			 const char functionName[] = "IOSFBConnect::Request::FBSDKGraphRequestHandler()";
 			 
@@ -840,7 +849,7 @@ IOSFBConnect::Request( lua_State *L, const char *path, const char *httpMethod, i
 void
 IOSFBConnect::PublishInstall() const
 {
-	[FBSDKAppEvents activateApp];
+	[FBSDKAppEvents.shared activateApp];
 }
 
 int

@@ -12,8 +12,25 @@ android {
 }
 
 dependencies {
-    implementation(":Corona@aar")
-    implementation("com.facebook.android:facebook-core:8.2.0")
-    implementation("com.facebook.android:facebook-login:8.2.0")
-    implementation("com.facebook.android:facebook-share:8.2.0")
+    implementation ':Corona@aar'
+    implementation("com.facebook.android:facebook-core:12.3.0")
+    implementation("com.facebook.android:facebook-login:12.3.0")
+    implementation("com.facebook.android:facebook-share:12.3.0")
+}
+
+task extractPluginJar() {
+    group "Solar2Dev"
+    dependsOn assemble
+    doLast {
+        copy {
+            from {
+                zipTree("$buildDir/outputs/aar/${project.name}-release.aar").matching {
+                    include 'classes.jar'
+                }.singleFile
+            }
+            into "$buildDir/outputs/"
+            String packageName = new XmlSlurper().parse(file('src/main/AndroidManifest.xml')).@package.text()
+            rename "classes.jar", "${packageName}.jar"
+        }
+    }
 }
